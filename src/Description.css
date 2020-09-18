@@ -1,0 +1,8 @@
+.Description #overall-description {
+  margin-top: -17px;
+  font-size: 14px;
+}
+
+.Description #overall-description:first-letter {
+  text-transform: capitalize;
+}
