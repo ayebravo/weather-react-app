@@ -34,6 +34,17 @@ function App() {
           </div>
         </div>
       </div>
+      <div className="github-repository">
+        <a
+          href="https://github.com/ayebravo/weather-app-react"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-link"
+        >
+          Open-source code
+        </a>
+        <p> by Ayelen Bravo</p>
+      </div>
     </div>
   );
 }
