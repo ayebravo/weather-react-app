@@ -1,0 +1,14 @@
+.Temperature .row.temperature {
+  margin-top: 0;
+}
+
+.Temperature .col-sm-4.weather-now {
+  margin-left: -15px;
+}
+
+.Temperature .col-sm-4.weather-now img {
+  width: 70px;
+  margin-top: 14px;
+  position: relative;
+  left: -10px;
+}

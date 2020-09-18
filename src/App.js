@@ -4,6 +4,7 @@ import SearchEngine from "./SearchEngine";
 import CurrentCity from "./CurrentCity";
 import DateTime from "./DateTime";
 import Description from "./Description";
+import Temperature from "./Temperature";
 
 import "./Styles.css";
 import "./App.css";
@@ -27,6 +28,7 @@ function App() {
               minutes="04"
             />
             <Description weather="overcast clouds" />
+            <Temperature number={20} />
           </div>
         </div>
       </div>
