@@ -1,0 +1,48 @@
+.MoreInformation .row.more-information {
+  margin-top: 24px;
+  padding-left: -10px;
+  min-width: fit-content;
+}
+
+.MoreInformation .row.more-information .description,
+.number {
+  display: inline;
+}
+
+.MoreInformation .row.more-information .number {
+  margin-left: 60px;
+}
+
+.MoreInformation .row.more-information .col-md-8 {
+  padding-left: 15px;
+  padding-right: 42px;
+}
+
+.MoreInformation .row.more-information .card {
+  background-color: transparent;
+  border: 2px groove #3242b9;
+  margin-bottom: 30px;
+}
+
+.MoreInformation .row.more-information .card-body {
+  padding: 15px 0 0 17px;
+  line-height: 15px;
+}
+
+.MoreInformation .card-body .row .description {
+  color: #3242b9;
+  padding-left: 15px;
+}
+
+.MoreInformation span {
+  color: #3242b9;
+  font-weight: 500;
+}
+.MoreInformation .number > span {
+  color: #3242b9;
+  font-weight: bold;
+}
+
+.card-body .row {
+  padding-left: 10px;
+}
