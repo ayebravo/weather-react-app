@@ -1,0 +1,55 @@
+@media (max-width: 1291px) {
+  .row.more-information .card {
+    max-width: 84%;
+    flex-basis: 84%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .row.more-information .card {
+    max-width: 90%;
+    flex-basis: 90%;
+  }
+}
+
+@media (max-width: 736px) {
+  .col-md-5.right-side.border-l {
+    border: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-sm-4.current-temperature,
+  .col-sm-4.weather-now {
+    max-width: 35%;
+    flex-basis: 35%;
+  }
+
+  .row.more-information .card {
+    max-width: 75%;
+    flex-basis: 75%;
+  }
+}
+
+#root {
+  margin: 30px;
+  max-width: 50%;
+  margin: 20px auto;
+  min-width: fit-content;
+}
+
+.container {
+  border: solid 3px #4fae54;
+  border-radius: 5px;
+  padding: 20px 15px 27px 30px;
+  max-width: 100%;
+  min-height: 100%;
+  background-image: linear-gradient(
+    to top,
+    #d5d4d0 0%,
+    #d5d4d0 1%,
+    #eeeeec 31%,
+    #efeeec 75%,
+    #e9e9e7 100%
+  );
+}
