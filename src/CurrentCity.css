@@ -1,0 +1,61 @@
+.CurrentCity .col.degree-type {
+  border: 2px solid #000000;
+  border-radius: 4px;
+  max-width: fit-content;
+  margin: 6px 10px auto 26px;
+}
+
+.CurrentCity .col-C,
+.col-F {
+  display: inline;
+  letter-spacing: 2px;
+}
+
+.CurrentCity .col-C {
+  margin-right: 5px;
+  border-right: 2px solid #000000;
+  padding-right: 3px;
+}
+
+.CurrentCity .col-F {
+  padding-left: 5px;
+}
+
+.CurrentCity .col.degree-type a:hover {
+  color: #f7ba44;
+  text-decoration: none;
+}
+.CurrentCity .col.degree-type a.active {
+  color: #32a138;
+}
+
+.CurrentCity .current-city {
+  margin-top: 30px;
+  min-width: fit-content;
+}
+
+.CurrentCity .col-md-1.favorite {
+  margin-left: 55px;
+  margin-right: -12px;
+}
+
+.CurrentCity .fas.fa-star {
+  font-size: 22px;
+  margin-top: 10px;
+  color: #32a138;
+}
+
+.CurrentCity .fas.fa-star:hover {
+  cursor: pointer;
+}
+
+.CurrentCity .far.fa-star {
+  font-size: 22px;
+  margin-top: 10px;
+  transition: all 200ms ease-in-out;
+}
+
+.CurrentCity .far.fa-star:hover {
+  color: #32a138;
+  cursor: pointer;
+}
