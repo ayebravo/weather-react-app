@@ -1,0 +1,76 @@
+.Forecast .col-md-5.right-side {
+  min-width: fit-content;
+  padding-right: 0;
+}
+
+.Forecast .row.temperature {
+  margin-top: 0;
+}
+
+.Forecast .row .day-1,
+.day-2,
+.day-3,
+.day-4,
+.day-5,
+.day-6 {
+  line-height: 1;
+  margin-bottom: 15px;
+}
+
+.Forecast .row.max-min {
+  color: #283593;
+  font-size: 20px;
+  font-family: "Quicksand", sans-serif;
+  margin-bottom: 17px;
+  margin-left: 23px;
+}
+
+.Forecast .row.max-min .both-temp .max-temp {
+  padding-left: 6px;
+  padding-right: 5px;
+}
+
+.Forecast .row.max-min .both-temp .min-temp {
+  padding-left: 0;
+  margin-right: 15px;
+}
+
+.Forecast .both-temp .min-temp.number {
+  margin-left: 8px;
+}
+
+.Forecast .col-sm-4 p.date-1,
+.col-sm-4 p.date-2,
+.col-sm-4 p.date-3,
+.col-sm-4 p.date-4,
+.col-sm-4 p.date-5,
+.col-sm-4 p.date-6 {
+  text-align: center;
+  margin-top: 7px;
+  margin-left: 8px;
+}
+
+.Forecast .col-sm-4 h5 {
+  color: #32a138;
+  font-size: 18px;
+  margin: 4px 0 0 6px;
+}
+
+.Forecast .both-temp > p {
+  display: inline;
+  color: #3242b9;
+  font-weight: 500;
+}
+
+.Forecast .col-sm-4.image img {
+  width: 36px;
+  margin-top: 0;
+  margin-left: 8px;
+}
+
+.Forecast .col-sm-4.both-temp {
+  padding: 0;
+  text-align: center;
+  word-spacing: 10px;
+  margin: 8px -18px 0 18px;
+}

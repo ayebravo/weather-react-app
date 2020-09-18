@@ -6,6 +6,7 @@ import DateTime from "./DateTime";
 import Description from "./Description";
 import Temperature from "./Temperature";
 import MoreInformation from "./MoreInformation";
+import Forecast from "./Forecast";
 
 import "./Styles.css";
 import "./App.css";
@@ -31,6 +32,9 @@ function App() {
             <Description weather="overcast clouds" />
             <Temperature number={20} />
             <MoreInformation />
+          </div>
+          <div className="col-12 col-md-5 right-side border-l">
+            <Forecast />
           </div>
         </div>
       </div>

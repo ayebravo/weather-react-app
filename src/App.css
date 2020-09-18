@@ -31,3 +31,7 @@
   text-decoration: none;
   color: #4aa139;
 }
+
+.App .border-l {
+  border-left: 2px solid #4fae54;
+}
