@@ -4,7 +4,7 @@ import "./Favorites.css";
 export default function Favorites() {
   return (
     <div className="Favorites row top-bar">
-      <div className="col-11 col-md-12">
+      <div className="col-12 col-md-12">
         <div className="fav-cities">
           <a className="city" href="#/" id="favorite-1">
             Favorite city 1

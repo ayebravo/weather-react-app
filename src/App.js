@@ -43,7 +43,7 @@ function App() {
           href="https://github.com/ayebravo/weather-app-react"
           target="_blank"
           rel="noopener noreferrer"
-          class="github-link"
+          className="github-link"
         >
           Open-source code
         </a>
