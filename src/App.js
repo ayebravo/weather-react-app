@@ -11,7 +11,7 @@ import Forecast from "./Forecast";
 import "./Styles.css";
 import "./App.css";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <div className="container">
@@ -38,7 +38,7 @@ function App() {
           </div>
         </div>
       </div>
-      <div className="github-repository">
+      <footer className="github-repository">
         <a
           href="https://github.com/ayebravo/weather-app-react"
           target="_blank"
@@ -47,10 +47,18 @@ function App() {
         >
           Open-source code
         </a>
-        <p> by Ayelen Bravo</p>
-      </div>
+        <p>
+          {" "}
+          by{" "}
+          <a
+            href="https://www.linkedin.com/in/ayelen-bravo-20115441/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ayelen Bravo
+          </a>
+        </p>
+      </footer>
     </div>
   );
 }
-
-export default App;
