@@ -9,7 +9,7 @@ export default function MoreInformation() {
   return (
     <div className="MoreInformation">
       <div className="row more-information">
-        <div className="col-12 col-md-7">
+        <div className="col-11 col-md-7">
           <div className="card">
             <div className="card-body">
               <div className="row">

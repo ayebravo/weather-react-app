@@ -18,7 +18,7 @@ export default function Form() {
           <div className="col-4 col-md-4">
             <button
               type="submit"
-              className="btn btn-outline-success"
+              className="btn btn-outline-success w-100"
               style={{ fontWeight: "bold" }}
             >
               Search
