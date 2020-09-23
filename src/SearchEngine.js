@@ -50,6 +50,7 @@ export default function Form() {
             <div className="col-sm-6"></div>
           </div>
         </form>
+        {temperature}
       </div>
     );
   } else {
