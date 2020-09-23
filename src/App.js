@@ -4,7 +4,6 @@ import SearchEngine from "./SearchEngine";
 import CurrentCity from "./CurrentCity";
 import DateTime from "./DateTime";
 import Description from "./Description";
-import Temperature from "./Temperature";
 import MoreInformation from "./MoreInformation";
 import Forecast from "./Forecast";
 
@@ -30,7 +29,7 @@ export default function App() {
               minutes="04"
             />
             <Description weather="overcast clouds" />
-            <Temperature number={20} />
+            {/* <Temperature number={20} /> */}
             <MoreInformation />
           </div>
           <div className="col-12 col-md-5 right-side border-l">

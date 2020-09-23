@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Temperature from "./Temperature";
 import "./SearchEngine.css";
 
 export default function Form() {
@@ -50,7 +51,7 @@ export default function Form() {
             <div className="col-sm-6"></div>
           </div>
         </form>
-        {temperature}
+        <Temperature data={temperature} />
       </div>
     );
   } else {
