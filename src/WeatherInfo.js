@@ -17,10 +17,14 @@ export default function WeatherInfo(props) {
         hours="10"
         minutes="04"
       />
-      <Description weather="overcast clouds" />
+      <Description weather={props.data.description} />
       <Temperature data={props.data.temperature} />
 
-      <MoreInformation />
+      <MoreInformation
+        humidity={props.data.humidity}
+        feelsLike={props.data.feelsLike}
+        wind={props.data.wind}
+      />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import Wind from "./MoreInformation/Wind";
 
 import "./MoreInformation.css";
 
-export default function MoreInformation() {
+export default function MoreInformation(props) {
   return (
     <div className="MoreInformation">
       <div className="row more-information">
@@ -13,15 +13,15 @@ export default function MoreInformation() {
           <div className="card">
             <div className="card-body">
               <div className="row">
-                <FeelsLike type="Feels like" value={71} />
+                <FeelsLike type="Feels like" value={props.feelsLike} />
               </div>
               <br />
               <div className="row">
-                <Humidity type="Humidity" value={92} />
+                <Humidity type="Humidity" value={props.humidity} />
               </div>
               <br />
               <div className="row">
-                <Wind type="Wind" value={4} />
+                <Wind type="Wind" value={props.wind} />
               </div>
               <br />
             </div>
