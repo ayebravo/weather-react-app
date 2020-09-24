@@ -1,19 +1,21 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Temperature from "./Temperature";
+import WeatherInfo from "./WeatherInfo";
+
 import "./SearchEngine.css";
 
-export default function Form() {
-  const [WeatherDataReady, setWeatherDataReady] = useState(false);
-  const [temperature, setTemperature] = useState(null);
+export default function SearchEngine() {
+  const [dataReady, setdataReady] = useState(false);
+  const [weatherData, setWeatherData] = useState(null);
 
   function handleResponse(response) {
-    console.log(response.data);
-    setTemperature(response.data.main.temp);
-    setWeatherDataReady(true);
+    setWeatherData({
+      temperature: Math.round(response.data.main.temp),
+    });
+    setdataReady(true);
   }
 
-  if (WeatherDataReady) {
+  if (dataReady) {
     return (
       <div className="Form">
         <form id="search-form" autoComplete="off">
@@ -51,13 +53,13 @@ export default function Form() {
             <div className="col-sm-6"></div>
           </div>
         </form>
-        <Temperature data={temperature} />
+        <WeatherInfo data={weatherData} />
       </div>
     );
   } else {
     // Else will make API call and update UI
     const apiKey = "a3f1de950d2940f6c2f8ca0198eb4ea2";
-    let city = "London";
+    let city = "Paris";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
