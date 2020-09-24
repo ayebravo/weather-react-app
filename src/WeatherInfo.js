@@ -9,7 +9,7 @@ import MoreInformation from "./MoreInformation";
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <CurrentCity name="Paris" />
+      <CurrentCity name={props.data.city} />
       <DateTime
         date="Monday"
         month="September"

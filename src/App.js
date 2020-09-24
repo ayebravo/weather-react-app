@@ -1,8 +1,6 @@
 import React from "react";
 import Favorites from "./Favorites";
-import SearchEngine from "./SearchEngine";
-
-import Forecast from "./Forecast";
+import MainContent from "./MainContent";
 
 import "./Styles.css";
 import "./App.css";
@@ -12,16 +10,8 @@ export default function App() {
     <div className="App">
       <div className="container">
         <Favorites />
-
         <br />
-        <div className="row main-content">
-          <div className="col-12 col-md-7 left-side">
-            <SearchEngine />
-          </div>
-          <div className="col-12 col-md-5 right-side border-l">
-            <Forecast />
-          </div>
-        </div>
+        <MainContent />
       </div>
       <footer className="github-repository">
         <a
