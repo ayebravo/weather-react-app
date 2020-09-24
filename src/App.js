@@ -11,7 +11,7 @@ export default function App() {
       <div className="container">
         <Favorites />
         <br />
-        <MainContent />
+        <MainContent defaultCity="London" />
       </div>
       <footer className="github-repository">
         <a

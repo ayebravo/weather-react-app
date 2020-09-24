@@ -18,7 +18,11 @@ export default function WeatherInfo(props) {
         minutes="04"
       />
       <Description weather={props.data.description} />
-      <Temperature data={props.data.temperature} />
+      <Temperature
+        data={props.data.temperature}
+        /* image={props.data.icon} */
+        altText={props.data.description}
+      />
 
       <MoreInformation
         humidity={props.data.humidity}

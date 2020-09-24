@@ -2,22 +2,23 @@ import React, { useState } from "react";
 import axios from "axios";
 import WeatherInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
+import ReactLoaderSpinner from "react-loader-spinner";
 
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./MainContent.css";
 
-export default function MainContent() {
+export default function MainContent(props) {
   const [dataReady, setdataReady] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
 
   function handleResponse(response) {
-    console.log(response.data);
     setWeatherData({
       temperature: Math.round(response.data.main.temp),
       city: response.data.name,
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       /* date */
-      /* icon */
+      /* icon: response.data.icon, */
       feelsLike: Math.round(response.data.main.feels_like),
       wind: Math.round(response.data.wind.speed),
     });
@@ -25,6 +26,7 @@ export default function MainContent() {
   }
 
   if (dataReady) {
+    // When API call is ready with weather information, return the following
     return (
       <div className="row main-content">
         <div className="col-12 col-md-7 left-side">
@@ -75,10 +77,16 @@ export default function MainContent() {
   } else {
     // Else will make API call and update UI
     const apiKey = "a3f1de950d2940f6c2f8ca0198eb4ea2";
-    let city = "Cordoba";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
 
-    return `The app is loading...`;
+    return (
+      <ReactLoaderSpinner
+        type="ThreeDots"
+        color="#3242B9"
+        height={80}
+        width={80}
+      />
+    );
   }
 }
