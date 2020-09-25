@@ -10,20 +10,13 @@ export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
       <CurrentCity name={props.data.city} />
-      <DateTime
-        date="Monday"
-        month="September"
-        day="14"
-        hours="10"
-        minutes="04"
-      />
+      <DateTime formattedDate={props.data.date} />
       <Description weather={props.data.description} />
       <Temperature
         data={props.data.temperature}
         /* image={props.data.icon} */
         altText={props.data.description}
       />
-
       <MoreInformation
         humidity={props.data.humidity}
         feelsLike={props.data.feelsLike}
