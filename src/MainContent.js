@@ -10,6 +10,7 @@ import "./MainContent.css";
 export default function MainContent(props) {
   const [dataReady, setdataReady] = useState(false);
   const [weatherData, setWeatherData] = useState(null);
+  const [city, setCity] = useState(props.defaultCity);
 
   function handleResponse(response) {
     setWeatherData({
@@ -25,13 +26,30 @@ export default function MainContent(props) {
     setdataReady(true);
   }
 
+  function search() {
+    const apiKey = "a3f1de950d2940f6c2f8ca0198eb4ea2";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+  }
+
+  function handleSubmit(event) {
+    event.preventDefault();
+    // Search for a city - search() takes care of making API call
+    // API callback updates the state
+    search();
+  }
+
+  function handleCityUpdate(event) {
+    setCity(event.target.value);
+  }
+
   if (dataReady) {
     // When API call is ready with weather information, return the following
     return (
       <div className="row main-content">
         <div className="col-12 col-md-7 left-side">
           <div className="Form">
-            <form id="search-form" autoComplete="off">
+            <form id="search-form" autoComplete="off" onSubmit={handleSubmit}>
               <div className="row search-area">
                 <div className="col-8 col-md-8">
                   <input
@@ -40,6 +58,7 @@ export default function MainContent(props) {
                     id="search-city"
                     placeholder="Enter a city"
                     autoFocus
+                    onChange={handleCityUpdate}
                   />
                 </div>
                 <div className="col-4 col-md-4">
@@ -75,11 +94,7 @@ export default function MainContent(props) {
       </div>
     );
   } else {
-    // Else will make API call and update UI
-    const apiKey = "a3f1de950d2940f6c2f8ca0198eb4ea2";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
-
+    search();
     return (
       <ReactLoaderSpinner
         type="ThreeDots"
