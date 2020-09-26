@@ -15,7 +15,7 @@ export default function App() {
       </div>
       <footer className="github-repository">
         <a
-          href="https://github.com/ayebravo/weather-app-react"
+          href="https://github.com/ayebravo/weather-react-app"
           target="_blank"
           rel="noopener noreferrer"
           className="github-link"
