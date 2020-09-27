@@ -1,6 +1,6 @@
 import React from "react";
+import WeatherIcon from "./WeatherIcon";
 import "./Temperature.css";
-import clouds from "./media/clouds.png";
 
 export default function Temperature(props) {
   return (
@@ -10,9 +10,7 @@ export default function Temperature(props) {
           <h1 id="temp-number">{props.data}°</h1>
         </div>
         <div className="col-sm-4 weather-now">
-          <img src={clouds} /* {props.data} */ alt={props.altText} />
-          {/* id="weather-image" */}
-          {/* style={{ visibility: "hidden" }} */}
+          <WeatherIcon icon={props.image} />
         </div>
       </div>
     </div>

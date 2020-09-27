@@ -19,7 +19,7 @@ export default function MainContent(props) {
       description: response.data.weather[0].description,
       humidity: response.data.main.humidity,
       date: new Date(response.data.dt * 1000), // New Date() creates an object
-      /* icon: response.data.icon, */
+      icon: response.data.weather[0].icon,
       feelsLike: Math.round(response.data.main.feels_like),
       wind: Math.round(response.data.wind.speed),
     });
