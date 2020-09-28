@@ -4,4 +4,9 @@
 
 .Favorites .city {
   margin: 14px 0 14px 14px;
+  font-size: 16px;
+}
+
+.Favorites .city:active {
+  font-weight: bold;
 }

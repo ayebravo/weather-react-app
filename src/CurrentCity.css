@@ -1,4 +1,4 @@
-.CurrentCity .col.degree-type {
+/* .CurrentCity .col.degree-type {
   border: 2px solid #000000;
   border-radius: 4px;
   max-width: fit-content;
@@ -27,7 +27,7 @@
 }
 .CurrentCity .col.degree-type a.active {
   color: #32a138;
-}
+} */
 
 .CurrentCity .current-city {
   margin-top: 30px;

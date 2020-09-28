@@ -3,7 +3,7 @@
 }
 
 .Temperature .col-sm-4.weather-now {
-  margin-left: -15px;
+  margin: -5px -49px 0 -15px;
 }
 
 .Temperature .col-sm-4.weather-now img {
@@ -11,4 +11,31 @@
   margin-top: 14px;
   position: relative;
   left: -10px;
+}
+
+.Temperature .col.degree-type {
+  border: 2px solid #1b2465;
+  border-radius: 4px;
+  max-width: fit-content;
+  margin: 6px 10px auto 0;
+}
+
+.Temperature .col-C,
+.col-F {
+  display: inline;
+  letter-spacing: 2px;
+}
+
+.Temperature .col-C {
+  margin-right: 5px;
+  border-right: 2px solid #1b2465;
+  padding-right: 3px;
+}
+
+.Temperature .col-F {
+  padding-left: 5px;
+}
+
+.Temperature .col.degree-type a.active {
+  font-weight: bold;
 }

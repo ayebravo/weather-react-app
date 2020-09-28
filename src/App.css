@@ -1,7 +1,20 @@
 .App a {
   color: #3242b9;
-  font-family: "Patrick Hand";
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 20px;
+}
+
+.App .github-repository a {
+  font-size: 16px;
+  color: #283593;
+  font-weight: 400;
+}
+
+.App a:hover {
+  color: #f7ba44;
+  text-decoration: none;
 }
 
 .App h1 {
@@ -20,16 +33,6 @@
   display: inline;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   font-size: 15px;
-}
-
-.App .github-link {
-  color: #283593;
-  font-weight: 300;
-}
-
-.App .github-link:hover {
-  text-decoration: none;
-  color: #4aa139;
 }
 
 .App .border-l {

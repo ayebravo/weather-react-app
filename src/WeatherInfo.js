@@ -9,11 +9,13 @@ import MoreInformation from "./MoreInformation";
 export default function WeatherInfo(props) {
   return (
     <div className="WeatherInfo">
-      <CurrentCity name={props.data.city} />
+      <CurrentCity
+        name={props.data.city} /* number={props.data.temperature} */
+      />
       <DateTime formattedDate={props.data.date} />
       <Description weather={props.data.description} />
       <Temperature
-        data={props.data.temperature}
+        celsius={props.data.temperature}
         image={props.data.icon}
         altText={props.data.description}
       />
