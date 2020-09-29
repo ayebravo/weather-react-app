@@ -1,101 +1,45 @@
-import React from "react";
-import sun from "./media/sun.png";
-import sunCloudy from "./media/sunCloudy.png";
-import raincloud from "./media/rainCloud.png";
+import React, { useState } from "react";
+import axios from "axios";
+import WeatherForecastPreview from "./WeatherForecastPreview";
 
 import "./Forecast.css";
 
-export default function Forecast() {
-  return (
-    <div className="Forecast">
-      <div className="rows-group" id="forecast">
-        <div className="row max-min">
-          <div className="col-2 col-md-3"></div>
-          <div className="col-6 col-md-6 both-temp">
-            <p className="max-temp">Max</p>
-            <p className="min-temp">Min</p>
+export default function Forecast(props) {
+  const [loaded, setLoaded] = useState(false); // Tracks if API has been loaded
+  const [forecast, setForecast] = useState(null);
+
+  function handleForecastResponse(response) {
+    setForecast(response.data);
+    setLoaded(true);
+  }
+
+  if (loaded && props.data.city === forecast.city.name) {
+    return (
+      <div className="Forecast">
+        <div className="rows-group" id="forecast">
+          <div className="row max-min">
+            <div className="col-2 col-md-3"></div>
+            <div className="col-6 col-md-6 both-temp">
+              <p className="max-temp">Max</p>
+              <p className="min-temp">Min</p>
+            </div>
+            <div className="col-2 col-md-3"></div>
           </div>
-          <div className="col-2 col-md-3"></div>
-        </div>
-        <div className="row day-1">
-          <div className="col-3 col-sm-4">
-            <h5>Saturday</h5>
-            <p className="date-1">6/27</p>
-          </div>
-          <div className="col-3 col-sm-4 both-temp">
-            <p className="max-temp">84°</p>
-            <p className="min-temp number">62°</p>
-          </div>
-          <div className="col-3 col-sm-4 image">
-            <img src={sun} alt="sun" />
-          </div>
-        </div>
-        <div className="row day-2">
-          <div className="col-3 col-sm-4">
-            <h5>Sunday</h5>
-            <p className="date-2">6/28</p>
-          </div>
-          <div className="col-3 col-sm-4 both-temp">
-            <p className="max-temp">85°</p>
-            <p className="min-temp number">66°</p>
-          </div>
-          <div className="col-3 col-sm-4 image">
-            <img src={sunCloudy} alt="cloudy" />
-          </div>
-        </div>
-        <div className="row day-3">
-          <div className="col-3 col-sm-4">
-            <h5>Monday</h5>
-            <p className="date-2">6/29</p>
-          </div>
-          <div className="col-3 col-sm-4 both-temp">
-            <p className="max-temp">89°</p>
-            <p className="min-temp number">69°</p>
-          </div>
-          <div className="col-3 col-sm-4 image">
-            <img src={raincloud} alt="rainy" />
-          </div>
-        </div>
-        <div className="row day-4">
-          <div className="col-3 col-sm-4">
-            <h5>Tuesday</h5>
-            <p className="date-4">6/30</p>
-          </div>
-          <div className="col-3 col-sm-4 both-temp">
-            <p className="max-temp">87°</p>
-            <p className="min-temp number">69°</p>
-          </div>
-          <div className="col-3 col-sm-4 image">
-            <img src={raincloud} alt="rainy" />
-          </div>
-        </div>
-        <div className="row day-5">
-          <div className="col-3 col-sm-4">
-            <h5>Wednesday</h5>
-            <p className="date-5">6/30</p>
-          </div>
-          <div className="col-3 col-sm-4 both-temp">
-            <p className="max-temp">85°</p>
-            <p className="min-temp number">64°</p>
-          </div>
-          <div className="col-3 col-sm-4 image">
-            <img src={sunCloudy} alt="cloudy" />
-          </div>
-        </div>
-        <div className="row day-6">
-          <div className="col-3 col-sm-4">
-            <h5>Thursday</h5>
-            <p className="date-6">7/01</p>
-          </div>
-          <div className="col-3 col-sm-4 both-temp">
-            <p className="max-temp">85°</p>
-            <p className="min-temp number">64°</p>
-          </div>
-          <div className="col-3 col-sm-4 image">
-            <img src={sunCloudy} alt="cloudy" />
-          </div>
+          <WeatherForecastPreview data={forecast.list[0]} />
+          <WeatherForecastPreview data={forecast.list[1]} />
+          <WeatherForecastPreview data={forecast.list[2]} />
+          <WeatherForecastPreview data={forecast.list[3]} />
+          <WeatherForecastPreview data={forecast.list[4]} />
+          <WeatherForecastPreview data={forecast.list[5]} />
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    let apiKey = "a3f1de950d2940f6c2f8ca0198eb4ea2";
+    let forecastApiUrl = `http://api.openweathermap.org/data/2.5/forecast?q=${props.data.city}&appid=${apiKey}&units=metric`;
+
+    axios.get(forecastApiUrl).then(handleForecastResponse);
+
+    return null;
+  }
 }

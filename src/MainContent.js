@@ -89,7 +89,7 @@ export default function MainContent(props) {
           </div>
         </div>
         <div className="col-12 col-md-5 right-side border-l">
-          <Forecast />
+          <Forecast data={weatherData} />
         </div>
       </div>
     );
