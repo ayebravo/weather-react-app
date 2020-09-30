@@ -43,6 +43,22 @@ export default function MainContent(props) {
     setCity(event.target.value);
   }
 
+  function showPosition(position) {
+    let currentLatitude = position.coords.latitude;
+    let currentLongitude = position.coords.longitude;
+
+    let apiKey = `a3f1de950d2940f6c2f8ca0198eb4ea2`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
+
+    let urlKey = `${apiUrl}&appid=${apiKey}`;
+    axios.get(urlKey).then(handleResponse);
+  }
+
+  function handleCurrentLocationClick(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(showPosition);
+  }
+
   if (dataReady) {
     // When API call is ready with weather information, return the following
     return (
@@ -78,6 +94,7 @@ export default function MainContent(props) {
                     className="btn btn-outline-success"
                     style={{ fontWeight: "bold" }}
                     id="button-element"
+                    onClick={handleCurrentLocationClick}
                   >
                     Current Location
                   </button>
