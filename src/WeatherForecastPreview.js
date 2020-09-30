@@ -1,5 +1,6 @@
 import React from "react";
 import WeatherIcon from "./WeatherIcon";
+import "./WeatherForecastPreview.css";
 
 export default function WeatherForecastPreview(props) {
   function hours() {
@@ -10,7 +11,7 @@ export default function WeatherForecastPreview(props) {
 
   return (
     <div className="WeatherForecastPreview">
-      <div className="row day-1">
+      <div className="row day">
         <div className="col-3 col-sm-4">
           <h5>{hours()}</h5>
         </div>

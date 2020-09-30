@@ -7,27 +7,16 @@
   margin-top: 0;
 }
 
-.Forecast .row .day-1,
-.day-2,
-.day-3,
-.day-4,
-.day-5,
-.day-6 {
-  line-height: 1;
-  margin-bottom: 15px;
-}
-
 .Forecast .row.max-min {
   color: #283593;
   font-size: 20px;
   font-family: "Quicksand", sans-serif;
   margin-bottom: 17px;
-  margin-left: 23px;
+  margin-left: 10px;
 }
 
 .Forecast .row.max-min .both-temp .max-temp {
-  padding-left: 6px;
-  padding-right: 5px;
+  padding-right: 7px;
 }
 
 .Forecast .row.max-min .both-temp .min-temp {
@@ -53,13 +42,17 @@
 .Forecast .col-sm-4 h5 {
   color: #32a138;
   font-size: 18px;
-  margin: 4px 0 0 6px;
+  margin: 12px 0 0 15px;
 }
 
 .Forecast .both-temp > p {
   display: inline;
   color: #3242b9;
   font-weight: 500;
+}
+
+.Forecast .col-sm-4.image {
+  margin-top: 4px;
 }
 
 .Forecast .col-sm-4.image img {
@@ -72,5 +65,5 @@
   padding: 0;
   text-align: center;
   word-spacing: 10px;
-  margin: 8px -18px 0 18px;
+  margin: 8px -10px 0 0px;
 }
