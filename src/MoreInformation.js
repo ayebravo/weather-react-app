@@ -13,7 +13,12 @@ export default function MoreInformation(props) {
           <div className="card">
             <div className="card-body">
               <div className="row">
-                <FeelsLike type="Feels like" value={props.feelsLike} />
+                <FeelsLike
+                  type="Feels like"
+                  value={props.feelsLike}
+                  unit={props.unit}
+                  setUnit={props.setUnit}
+                />
               </div>
               <br />
               <div className="row">

@@ -16,11 +16,15 @@ export default function WeatherInfo(props) {
         celsius={props.data.temperature}
         image={props.data.icon}
         altText={props.data.description}
+        unit={props.unit}
+        setUnit={props.setUnit}
       />
       <MoreInformation
         humidity={props.data.humidity}
         feelsLike={props.data.feelsLike}
         wind={props.data.wind}
+        unit={props.unit}
+        setUnit={props.setUnit}
       />
     </div>
   );
