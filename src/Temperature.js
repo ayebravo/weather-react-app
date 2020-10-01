@@ -4,8 +4,6 @@ import WeatherIcon from "./WeatherIcon";
 import "./Temperature.css";
 
 export default function Temperature(props) {
-  /* const [unit, setUnit] = useState("celsius"); */
-
   function showFahrenheit(event) {
     event.preventDefault();
     props.setUnit("fahrenheit");
