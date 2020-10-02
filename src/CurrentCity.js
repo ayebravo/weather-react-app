@@ -1,5 +1,4 @@
 import React from "react";
-/* import TemperatureUnit from "./TemperatureUnit"; */
 
 import "./CurrentCity.css";
 
@@ -13,7 +12,6 @@ export default function CurrentCity(props) {
         <div className="col-2 col-md-1 favorite" id="favorite">
           <i className="far fa-star" id="star-favorite"></i>
         </div>
-        {/* <TemperatureUnit celsius={props.number} /> */}
       </div>
     </div>
   );
