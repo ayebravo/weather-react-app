@@ -27,7 +27,7 @@ export default function MoreInformation(props) {
                 </div>
                 <br />
                 <div className="row">
-                  <Wind type="Wind" value={props.wind} />
+                  <Wind type="Wind" value={props.wind} unit="kmh" />
                 </div>
                 <br />
               </div>
@@ -38,6 +38,7 @@ export default function MoreInformation(props) {
     );
   } else {
     let feelsLikeFahrenheit = Math.round((props.feelsLike * 9) / 5 + 32);
+    let mphWindSpeed = Math.round(props.wind / 1.609344);
 
     return (
       <div className="MoreInformation">
@@ -46,12 +47,8 @@ export default function MoreInformation(props) {
             <div className="card">
               <div className="card-body">
                 <div className="row">
-                  <FeelsLike
-                    type="Feels like"
-                    value={feelsLikeFahrenheit}
-                    unit={props.unit}
-                    setUnit={props.setUnit}
-                  />
+                  <FeelsLike type="Feels like" value={feelsLikeFahrenheit} />{" "}
+                  {/* Sending already converted value */}
                 </div>
                 <br />
                 <div className="row">
@@ -59,7 +56,7 @@ export default function MoreInformation(props) {
                 </div>
                 <br />
                 <div className="row">
-                  <Wind type="Wind" value={props.wind} />
+                  <Wind type="Wind" value={mphWindSpeed} unit="mph" />
                 </div>
                 <br />
               </div>

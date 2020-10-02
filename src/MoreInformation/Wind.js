@@ -5,7 +5,8 @@ export default function Wind(props) {
     <div className="Wind">
       <p className="description">{props.type}</p>
       <p className="number">
-        <span id="speed-number">{props.value} km/h</span>
+        <span id="speed-number">{props.value}</span>
+        <span id="speed-unit"> {props.unit}</span>
       </p>
     </div>
   );
