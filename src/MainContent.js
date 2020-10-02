@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Favorites from "./Favorites";
 import WeatherInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
 import ReactLoaderSpinner from "react-loader-spinner";
@@ -63,51 +64,55 @@ export default function MainContent(props) {
   if (dataReady) {
     // When API call is ready with weather information, return the following
     return (
-      <div className="row main-content">
-        <div className="col-12 col-md-7 left-side">
-          <div className="Form">
-            <form id="search-form" autoComplete="off" onSubmit={handleSubmit}>
-              <div className="row search-area">
-                <div className="col-8 col-md-8">
-                  <input
-                    type="search"
-                    className="form-control"
-                    id="search-city"
-                    placeholder="Enter a city"
-                    autoFocus
-                    onChange={handleCityUpdate}
-                  />
+      <div className="MainContent">
+        <Favorites />
+        <br />
+        <div className="row main-content">
+          <div className="col-12 col-md-7 left-side">
+            <div className="Form">
+              <form id="search-form" autoComplete="off" onSubmit={handleSubmit}>
+                <div className="row search-area">
+                  <div className="col-8 col-md-8">
+                    <input
+                      type="search"
+                      className="form-control"
+                      id="search-city"
+                      placeholder="Enter a city"
+                      autoFocus
+                      onChange={handleCityUpdate}
+                    />
+                  </div>
+                  <div className="col-4 col-md-4">
+                    <button
+                      type="submit"
+                      className="btn btn-outline-success w-100"
+                      style={{ fontWeight: "bold" }}
+                    >
+                      Search
+                    </button>
+                  </div>
                 </div>
-                <div className="col-4 col-md-4">
-                  <button
-                    type="submit"
-                    className="btn btn-outline-success w-100"
-                    style={{ fontWeight: "bold" }}
-                  >
-                    Search
-                  </button>
+                <div className="row current-location">
+                  <div className="col-sm-6 button">
+                    <button
+                      type="button"
+                      className="btn btn-outline-success"
+                      style={{ fontWeight: "bold" }}
+                      id="button-element"
+                      onClick={handleCurrentLocationClick}
+                    >
+                      Current Location
+                    </button>
+                  </div>
+                  <div className="col-sm-6"></div>
                 </div>
-              </div>
-              <div className="row current-location">
-                <div className="col-sm-6 button">
-                  <button
-                    type="button"
-                    className="btn btn-outline-success"
-                    style={{ fontWeight: "bold" }}
-                    id="button-element"
-                    onClick={handleCurrentLocationClick}
-                  >
-                    Current Location
-                  </button>
-                </div>
-                <div className="col-sm-6"></div>
-              </div>
-            </form>
-            <WeatherInfo data={weatherData} unit={unit} setUnit={setUnit} />
+              </form>
+              <WeatherInfo data={weatherData} unit={unit} setUnit={setUnit} />
+            </div>
           </div>
-        </div>
-        <div className="col-12 col-md-5 right-side border-l">
-          <Forecast data={weatherData} unit={unit} />
+          <div className="col-12 col-md-5 right-side border-l">
+            <Forecast data={weatherData} unit={unit} />
+          </div>
         </div>
       </div>
     );
