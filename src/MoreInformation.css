@@ -13,6 +13,10 @@
   margin-left: 60px;
 }
 
+.MoreInformation .row.more-information .number.speed {
+  margin-left: 70px;
+}
+
 .MoreInformation .row.more-information .col-md-8 {
   padding-left: 15px;
   padding-right: 42px;
@@ -45,8 +49,4 @@
 
 .MoreInformation .card-body .row {
   padding-left: 10px;
-}
-
-.MoreInformation p .number {
-  margin-left: 70px;
 }
