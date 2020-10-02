@@ -43,6 +43,10 @@
   font-weight: bold;
 }
 
-.card-body .row {
+.MoreInformation .card-body .row {
   padding-left: 10px;
+}
+
+.MoreInformation p .number {
+  margin-left: 70px;
 }
