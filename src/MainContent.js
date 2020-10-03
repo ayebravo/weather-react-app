@@ -13,6 +13,10 @@ export default function MainContent(props) {
   const [weatherData, setWeatherData] = useState(null);
   const [city, setCity] = useState(props.defaultCity);
   const [unit, setUnit] = useState("celsius");
+  const [favoriteCity1, setFavoriteCity1] = useState("Favorite city 1");
+  const [favoriteCity2, setFavoriteCity2] = useState("Favorite city 2");
+  const [favoriteCity3, setFavoriteCity3] = useState("Favorite city 3");
+  const [isFavorite, setIsFavorite] = useState(false);
 
   function handleResponse(response) {
     setWeatherData({
@@ -61,11 +65,21 @@ export default function MainContent(props) {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
 
+  function handleStarClick(event) {
+    event.preventDefault();
+    setIsFavorite(true);
+    setFavoriteCity1(city);
+  }
+
   if (dataReady) {
     // When API call is ready with weather information, return the following
     return (
       <div className="MainContent">
-        <Favorites />
+        <Favorites
+          favoriteCity1={favoriteCity1}
+          favoriteCity2={favoriteCity2}
+          favoriteCity3={favoriteCity3}
+        />
         <br />
         <div className="row main-content">
           <div className="col-12 col-md-7 left-side">
@@ -107,7 +121,13 @@ export default function MainContent(props) {
                   <div className="col-sm-6"></div>
                 </div>
               </form>
-              <WeatherInfo data={weatherData} unit={unit} setUnit={setUnit} />
+              <WeatherInfo
+                data={weatherData}
+                unit={unit}
+                setUnit={setUnit}
+                handleStarClick={handleStarClick}
+                isFavorite={isFavorite}
+              />
             </div>
           </div>
           <div className="col-12 col-md-5 right-side border-l">
