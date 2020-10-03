@@ -30,6 +30,16 @@ export default function MainContent(props) {
       wind: Math.round(response.data.wind.speed),
     });
     setdataReady(true);
+
+    if (
+      response.data.name === favoriteCity1 ||
+      response.data.name === favoriteCity2 ||
+      response.data.name === favoriteCity3
+    ) {
+      setIsFavorite(true);
+    } else {
+      setIsFavorite(false);
+    }
   }
 
   function search() {
@@ -67,8 +77,44 @@ export default function MainContent(props) {
 
   function handleStarClick(event) {
     event.preventDefault();
-    setIsFavorite(true);
-    setFavoriteCity1(city);
+
+    // Check if city(current city element) is one of the favorites
+    if (
+      city === favoriteCity1 ||
+      city === favoriteCity2 ||
+      city === favoriteCity3
+    ) {
+      setIsFavorite(false);
+      // Remove city from favorites when I click star
+      if (city === favoriteCity1) {
+        setFavoriteCity1("Favorite city 1");
+        /* setCookie("favorite1", "", 365); */
+      } else if (city === favoriteCity2) {
+        setFavoriteCity2("Favorite city 2");
+        /* setCookie("favorite2", "", 365); */
+      } else if (city === favoriteCity3) {
+        setFavoriteCity3("Favorite city 3");
+        /* setCookie("favorite3", "", 365); */
+      }
+    } else {
+      // Add city to favorite
+      setIsFavorite(true);
+
+      if (favoriteCity1 === "Favorite city 1") {
+        setFavoriteCity1(city);
+
+        /* setCookie("favorite1", city, 365); */
+      } else if (favoriteCity2 === "Favorite city 2") {
+        setFavoriteCity2(city);
+        /* setCookie("favorite2", city, 365); */
+      } else if (favoriteCity3 === "Favorite city 3") {
+        setFavoriteCity3(city);
+        /* setCookie("favorite3", city, 365); */
+      } else {
+        setFavoriteCity1(city);
+        /* setCookie("favorite1", city, 365); */
+      }
+    }
   }
 
   if (dataReady) {
