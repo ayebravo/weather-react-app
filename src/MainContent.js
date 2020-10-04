@@ -42,9 +42,13 @@ export default function MainContent(props) {
     }
   }
 
-  function search() {
-    const apiKey = "a3f1de950d2940f6c2f8ca0198eb4ea2";
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  function search(cityName) {
+    if (cityName === "" || cityName === undefined) {
+      cityName = city;
+    }
+
+    const apiKey = `aac79889e49f29a8552882d24f4ac220`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl).then(handleResponse);
   }
 
@@ -63,7 +67,7 @@ export default function MainContent(props) {
     let currentLatitude = position.coords.latitude;
     let currentLongitude = position.coords.longitude;
 
-    let apiKey = `a3f1de950d2940f6c2f8ca0198eb4ea2`;
+    let apiKey = `87902e7dfe3b87ca79f836a734e28c4a`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
 
     let urlKey = `${apiUrl}&appid=${apiKey}`;
@@ -75,24 +79,36 @@ export default function MainContent(props) {
     navigator.geolocation.getCurrentPosition(showPosition);
   }
 
+  function showFavoriteCity(event, favoriteNumber) {
+    event.preventDefault();
+
+    if (favoriteNumber === 1) {
+      search(favoriteCity1);
+    } else if (favoriteNumber === 2) {
+      search(favoriteCity2);
+    } else {
+      search(favoriteCity3);
+    }
+  }
+
   function handleStarClick(event) {
     event.preventDefault();
 
     // Check if city(current city element) is one of the favorites
     if (
-      city === favoriteCity1 ||
-      city === favoriteCity2 ||
-      city === favoriteCity3
+      weatherData.city === favoriteCity1 ||
+      weatherData.city === favoriteCity2 ||
+      weatherData.city === favoriteCity3
     ) {
       setIsFavorite(false);
       // Remove city from favorites when I click star
-      if (city === favoriteCity1) {
+      if (weatherData.city === favoriteCity1) {
         setFavoriteCity1("Favorite city 1");
         /* setCookie("favorite1", "", 365); */
-      } else if (city === favoriteCity2) {
+      } else if (weatherData.city === favoriteCity2) {
         setFavoriteCity2("Favorite city 2");
         /* setCookie("favorite2", "", 365); */
-      } else if (city === favoriteCity3) {
+      } else if (weatherData.city === favoriteCity3) {
         setFavoriteCity3("Favorite city 3");
         /* setCookie("favorite3", "", 365); */
       }
@@ -101,17 +117,17 @@ export default function MainContent(props) {
       setIsFavorite(true);
 
       if (favoriteCity1 === "Favorite city 1") {
-        setFavoriteCity1(city);
+        setFavoriteCity1(weatherData.city);
 
         /* setCookie("favorite1", city, 365); */
       } else if (favoriteCity2 === "Favorite city 2") {
-        setFavoriteCity2(city);
+        setFavoriteCity2(weatherData.city);
         /* setCookie("favorite2", city, 365); */
       } else if (favoriteCity3 === "Favorite city 3") {
-        setFavoriteCity3(city);
+        setFavoriteCity3(weatherData.city);
         /* setCookie("favorite3", city, 365); */
       } else {
-        setFavoriteCity1(city);
+        setFavoriteCity1(weatherData.city);
         /* setCookie("favorite1", city, 365); */
       }
     }
@@ -125,6 +141,7 @@ export default function MainContent(props) {
           favoriteCity1={favoriteCity1}
           favoriteCity2={favoriteCity2}
           favoriteCity3={favoriteCity3}
+          showFavoriteCity={showFavoriteCity}
         />
         <br />
         <div className="row main-content">
