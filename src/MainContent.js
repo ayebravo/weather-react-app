@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Favorites from "./Favorites";
 import WeatherInfo from "./WeatherInfo";
@@ -104,13 +104,13 @@ export default function MainContent(props) {
       // Remove city from favorites when I click star
       if (weatherData.city === favoriteCity1) {
         setFavoriteCity1("Favorite city 1");
-        /* setCookie("favorite1", "", 365); */
+        setCookie("favorite1", "", 365);
       } else if (weatherData.city === favoriteCity2) {
         setFavoriteCity2("Favorite city 2");
-        /* setCookie("favorite2", "", 365); */
+        setCookie("favorite2", "", 365);
       } else if (weatherData.city === favoriteCity3) {
         setFavoriteCity3("Favorite city 3");
-        /* setCookie("favorite3", "", 365); */
+        setCookie("favorite3", "", 365);
       }
     } else {
       // Add city to favorite
@@ -119,18 +119,66 @@ export default function MainContent(props) {
       if (favoriteCity1 === "Favorite city 1") {
         setFavoriteCity1(weatherData.city);
 
-        /* setCookie("favorite1", city, 365); */
+        setCookie("favorite1", weatherData.city, 365);
       } else if (favoriteCity2 === "Favorite city 2") {
         setFavoriteCity2(weatherData.city);
-        /* setCookie("favorite2", city, 365); */
+        setCookie("favorite2", weatherData.city, 365);
       } else if (favoriteCity3 === "Favorite city 3") {
         setFavoriteCity3(weatherData.city);
-        /* setCookie("favorite3", city, 365); */
+        setCookie("favorite3", weatherData.city, 365);
       } else {
         setFavoriteCity1(weatherData.city);
-        /* setCookie("favorite1", city, 365); */
+        setCookie("favorite1", weatherData.city, 365);
       }
     }
+  }
+
+  // This happens only one time when the component loads - Checks if there is saved data in the cookies and restores favorite cities when user last used the app
+  useEffect(() => {
+    let firstFavCity = getCookie("favorite1");
+    if (firstFavCity !== "") {
+      setFavoriteCity1(firstFavCity);
+      setCity(firstFavCity);
+    }
+
+    let secondFavCity = getCookie("favorite2");
+    if (secondFavCity !== "") {
+      setFavoriteCity2(secondFavCity);
+    }
+
+    let thirdFavCity = getCookie("favorite3");
+    if (thirdFavCity !== "") {
+      setFavoriteCity3(thirdFavCity);
+    }
+  }, []);
+
+  // Cookies section - Generic functions copied from https://www.w3schools.com/js/js_cookies.asp
+
+  //setCookies: It saves user's data in user's computer
+  //cname: name of cookie (string)
+  //cvalue: value you want to save
+  //exdays: number of days the cookie is stored before it expires
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + exdays * 24 * 60 * 60 * 1000);
+    var expires = "expires=" + d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  //getCookie: retrives data from user's browser
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(";");
+    for (var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) === " ") {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) === 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
   }
 
   if (dataReady) {

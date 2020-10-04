@@ -1,5 +1,5 @@
 import React from "react";
-/* import Favorites from "./Favorites"; */
+
 import MainContent from "./MainContent";
 
 import "./Styles.css";
@@ -9,8 +9,6 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        {/* <Favorites />
-        <br /> */}
         <MainContent defaultCity="Paris" />
       </div>
       <footer className="github-repository">
