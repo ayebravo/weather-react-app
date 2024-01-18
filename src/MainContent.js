@@ -4,7 +4,6 @@ import Favorites from "./Favorites";
 import WeatherInfo from "./WeatherInfo";
 import Forecast from "./Forecast";
 import ReactLoaderSpinner from "react-loader-spinner";
-
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import "./MainContent.css";
 
@@ -47,7 +46,7 @@ export default function MainContent(props) {
       cityName = city;
     }
 
-    const apiKey = `0aeb9d0360dbc3e4f8421c55fe8ee821`;
+    const apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
     axios.get(apiUrl)
       .then(handleResponse)
@@ -69,7 +68,7 @@ export default function MainContent(props) {
     let currentLatitude = position.coords.latitude;
     let currentLongitude = position.coords.longitude;
 
-    let apiKey = `0aeb9d0360dbc3e4f8421c55fe8ee821`;
+    let apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
 
     let urlKey = `${apiUrl}&appid=${apiKey}`;

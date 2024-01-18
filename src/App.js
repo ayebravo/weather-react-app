@@ -9,7 +9,7 @@ export default function App() {
   return (
     <div className="App">
       <div className="container">
-        <MainContent defaultCity="Paris" />
+        <MainContent defaultCity="Madison" />
       </div>
       <footer className="github-repository">
         <a

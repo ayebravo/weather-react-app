@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 import WeatherForecastPreview from "./WeatherForecastPreview";
-
 import "./Forecast.css";
+
 
 export default function Forecast(props) {
   const [loaded, setLoaded] = useState(false); // Tracks if API has been loaded
@@ -41,7 +41,7 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    let apiKey = "0aeb9d0360dbc3e4f8421c55fe8ee821";
+    let apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
     let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.data.city}&appid=${apiKey}&units=metric`;
 
     axios.get(forecastApiUrl)
