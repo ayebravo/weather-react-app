@@ -13,7 +13,13 @@ export default function Forecast(props) {
     setLoaded(true);
   }
 
+  // TODO: Fix forecast - Why?
+  // 1) It disappears visually when selecting "current city"
+  // 2) It seems to be making too many requests to the API
   if (loaded && props.data.city === forecast.city.name) {
+    // console.log("loaded?" + loaded);
+    // console.log("props.data.city: " + props.data.city);
+    // console.log("forecast.data.city: " + forecast.city.name)
     return (
       <div className="Forecast">
         <div className="rows-group" id="forecast">
@@ -35,10 +41,12 @@ export default function Forecast(props) {
       </div>
     );
   } else {
-    let apiKey = "a3f1de950d2940f6c2f8ca0198eb4ea2";
+    let apiKey = "0aeb9d0360dbc3e4f8421c55fe8ee821";
     let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.data.city}&appid=${apiKey}&units=metric`;
 
-    axios.get(forecastApiUrl).then(handleForecastResponse);
+    axios.get(forecastApiUrl)
+      .then(handleForecastResponse)
+      .catch(err => console.log(err));
 
     return null;
   }

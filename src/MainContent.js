@@ -47,9 +47,11 @@ export default function MainContent(props) {
       cityName = city;
     }
 
-    const apiKey = `aac79889e49f29a8552882d24f4ac220`;
+    const apiKey = `0aeb9d0360dbc3e4f8421c55fe8ee821`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
-    axios.get(apiUrl).then(handleResponse);
+    axios.get(apiUrl)
+      .then(handleResponse)
+      .catch(err => console.log(err));
   }
 
   function handleSubmit(event) {
@@ -67,7 +69,7 @@ export default function MainContent(props) {
     let currentLatitude = position.coords.latitude;
     let currentLongitude = position.coords.longitude;
 
-    let apiKey = `87902e7dfe3b87ca79f836a734e28c4a`;
+    let apiKey = `0aeb9d0360dbc3e4f8421c55fe8ee821`;
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${currentLatitude}&lon=${currentLongitude}&appid=${apiKey}&units=metric`;
 
     let urlKey = `${apiUrl}&appid=${apiKey}`;
