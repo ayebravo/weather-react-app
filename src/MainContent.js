@@ -53,6 +53,15 @@ export default function MainContent(props) {
       .catch(err => console.log(err));
   }
 
+
+  useEffect(() => {
+    search();
+  
+    return () => {
+    // cancel your api calls here so that there won't be any data leaks
+    }
+  }, []);
+
   function handleSubmit(event) {
     event.preventDefault();
     // Search for a city - search() takes care of making API call

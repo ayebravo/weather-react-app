@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import WeatherForecastPreview from "./WeatherForecastPreview";
 import "./Forecast.css";
@@ -13,13 +13,28 @@ export default function Forecast(props) {
     setLoaded(true);
   }
 
+  function getForecastWeather() {
+    let apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
+    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.data.city}&appid=${apiKey}&units=metric`;
+
+    axios.get(forecastApiUrl)
+      .then(handleForecastResponse)
+      .catch(err => console.log(err));
+  }
+
+  // The useEffect above is not calling getForecastWeather as expected once I search for a new city.
+  useEffect(() => {
+    getForecastWeather();
+
+    return () => {
+    // cancel your api calls here so that there won't be any data leaks
+    }
+  }, []);
+
   // TODO: Fix forecast - Why?
   // 1) It disappears visually when selecting "current city"
   // 2) It seems to be making too many requests to the API
   if (loaded && props.data.city === forecast.city.name) {
-    // console.log("loaded?" + loaded);
-    // console.log("props.data.city: " + props.data.city);
-    // console.log("forecast.data.city: " + forecast.city.name)
     return (
       <div className="Forecast">
         <div className="rows-group" id="forecast">
@@ -40,13 +55,15 @@ export default function Forecast(props) {
         </div>
       </div>
     );
-  } else {
-    let apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
-    let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.data.city}&appid=${apiKey}&units=metric`;
+  } 
+  else {
+    // getForecastWeather();
+    // let apiKey = process.env.REACT_APP_OPENWEATHER_API_KEY;
+    // let forecastApiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.data.city}&appid=${apiKey}&units=metric`;
 
-    axios.get(forecastApiUrl)
-      .then(handleForecastResponse)
-      .catch(err => console.log(err));
+    // axios.get(forecastApiUrl)
+    //   .then(handleForecastResponse)
+    //   .catch(err => console.log(err));
 
     return null;
   }
